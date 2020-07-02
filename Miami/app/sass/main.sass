@@ -1,0 +1,471 @@
+@import "libs"
+@import "_helpers/app"
+@import "fonts"
+
+
+*::-webkit-input-placeholder
+	color: #666
+	opacity: 1
+
+*:-moz-placeholder
+	color: #666
+	opacity: 1
+
+*::-moz-placeholder
+	color: #666
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: #666
+	opacity: 1
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: #666
+body input:required:valid,
+body textarea:required:valid
+	color: #666
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6
+	font-family: $default-font
+	font-weight: normal
+
+h1, .h1
+	font-size: em(41)
+	line-height: 1.15
+
+h2, .h2
+	font-size: em(32px)
+
+h3, h4,
+.h3, .h4
+	font-size: em(15px)
+
+h4, .h4
+	font-size: em(13px)
+
+a
+	color: $accent
+	outline: none !important
+
+.nav
+	ul
+		list-style-type: none
+		padding: 0
+		margin: 0
+
+
+
+body
+	background: #FFF
+	font-size: 16px
+	min-width: 280px
+	position: relative
+	color: #000
+	line-height: 1.5
+	font-family: $default-font
+	overflow-x: hidden
+	opacity: 1
+
+
+
+.button
+	font-family: $default-font
+	font-size: 14px
+	line-height: 52px
+	height: 52px
+	display: block
+	background-color: $accent
+	text-transform: uppercase
+	text-decoration: none
+	color: #fff
+	font-weight: 500
+	text-align: center
+	width: 100%
+	border: none
+	&_inline
+		display: inline-block
+		padding: 0 60px
+		width: auto
+a.button 
+	&:focus, &:hover, &:active
+		box-shadow: inset 0px 0px 0px 2px $accent
+		background-color: transparent
+		color: $accent
+	
+
+
+.wrapper
+	margin: 0 auto
+	max-width: 940px
+	+clr
+	+r(940)
+		margin: 0 20px
+
+
+.header
+	background-size: cover
+	background-position: 50% 100%
+	background-repeat: no-repeat
+	position: relative
+	&__call,
+	&__phone
+		color: #fff
+		text-decoration: none
+		opacity: .6
+		&:focus, &:hover, &:active
+			color: $accent
+		+r(720)
+			position: relative
+			top: 17px
+	&__call
+		text-transform: uppercase
+		border-bottom: 1px dashed #fff
+		&:focus, &:hover, &:active
+			border-bottom: 1px dashed $accent
+	&:before
+		+r(720)
+			position: absolute
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+			background-color: rgba(#000, .6)
+			content: " "
+	.wrapper
+		position: relative
+		height: 100vh
+		min-height: 500px
+		.wrap__head
+			position: relative
+			top: 100px
+			left: 0
+			right: 0
+			display: -webkit-flex
+			display: -moz-flex
+			display: -ms-flex
+			display: -o-flex
+			display: flex
+			align-items: flex-start
+			justify-content: space-between
+			+r(720)
+				top: 30px
+		.wrap__logo
+			position: relative
+			top: -40px
+			margin: 0 20px
+			+r(720)
+				position: relative
+				float: left
+				left: 0
+				top: 0
+				transform: none
+			.logo
+				height: 80px
+				+r(720)
+					height: 50px
+.form__submit
+	margin-top: 2em
+.nav
+	position: absolute
+	left: 0
+	right: 0
+	bottom: 40px
+	padding: 0
+	display: -webkit-flex
+	display: -moz-flex
+	display: -ms-flex
+	display: -o-flex
+	display: flex
+	justify-content: space-between
+	li
+		display: block
+		&:focus, &:hover, &:active
+			a
+				color: $accent
+		+r(720)
+			margin-bottom: 15px
+			text-align: center
+			font-size: 18px
+	+r(720)
+		position: static
+		display: block
+		padding: 100px 50px 50px 50px
+	a
+		color: #fff
+		text-transform: uppercase
+		text-decoration: none
+		font-weight: 500
+
+.input, .textarea 
+	margin-bottom: 10px
+.input, .textarea
+	text-align: center
+	font-family: $default-font
+	line-height: normal
+	border: none
+	background-color: #eeeeee
+	height: 52px
+	width: 100%
+	font-weight: 500
+	color: #393939
+	text-transform: uppercase
+	&:placeholder
+		font-size: 14px
+.textarea
+	display: block
+	height: 100px
+	padding: 20px
+	min-width: 100%
+	max-width: 100%
+
+.box
+	background: #fff
+	position: relative
+	z-index: 100
+	box-shadow: 0 0 10px rgba(#000, .5)
+body
+	padding-bottom: 540px
+.footer
+	display: block
+	height: 540px
+	max-width: 100%
+	background-repeat: no-repeat
+	background-size: cover
+	background-position: 50% 50%
+	position: fixed
+	bottom: 0
+	left: 0
+	right: 0
+	z-index: 1
+	&__logo
+		position: absolute
+		left: 50%
+		top: 50%
+		transform: translate(-50%, -50%)
+		height: 80px
+	&__copy
+		text-transform: uppercase
+		color: #fff
+		text-align: center
+		font-size: 16px
+		position: absolute
+		bottom: 40px
+		left: 0
+		right: 0
+
+
+
+.section
+	padding: 130px 0
+	position: relative
+	+r(960)
+		padding: 60px 0
+	&__button
+		text-align: center
+		margin-top: 30px
+	&__title
+		position: absolute
+		left: 50%
+		top: -.5em
+		transform: translate(-50%, 0)
+		font-size: 48px
+		font-weight: 100
+		color: #000
+		padding-bottom: 16px
+		text-transform: uppercase
+		line-height: 1
+		+r(720)
+			position: relative
+			top: 0
+			left: 0
+			transform: none
+			margin: 0 0 40px 0
+			font-size: 30px
+			text-align: center
+		&:before, &:after
+			content: ""
+			height: 2px
+			width: calc(50% - 20px)
+			position: absolute
+			background-color: $accent
+			bottom: 0
+		&:before
+			left: 0
+		&:after
+			right: 0
+
+	.logo
+		position: absolute
+		bottom: 0
+		height: 15px
+		margin-bottom: -12px
+		left: 50%
+		transform: translate(-50%, 0)
+	&:nth-child(odd)
+		background-color: #eeeeee
+	&__left
+		float: left
+		width: 50%
+		+r(720)
+			float: none
+			width: auto
+			margin-bottom: 40px
+	&__right
+		float: right
+		width: 33%
+		+r(720)
+			float: none
+			width: auto
+
+.best
+	span
+			color: $accent
+			font-weight: 100
+	&__miami
+		width: 33%
+		float: left
+		font-size: 48px
+		text-transform: uppercase
+		font-weight: normal
+		font-weight: 100
+		+r(960)
+			width: auto
+			float: none
+			margin-bottom: 20px
+			br
+				display: none
+	&__text
+		display: block
+		width: 66%
+		float: right
+		+r(960)
+			float: none
+			width: auto
+			ol
+				margin: 0 20px
+
+
+.textual
+	strong
+			font-weight: 600
+	h2
+		font-size: 32px
+		line-height: 1.1
+		font-weight: normal
+		margin-bottom: 1em
+	p
+		margin-bottom: 1em
+	ol, ul
+		padding: 0
+		margin-bottom: 1em
+	ol
+		list-style: decimal
+		position: relative
+		left: -5px
+		li
+			padding-left: 5px
+	&_big
+		p
+			font-size: 24px
+			line-height: 1.3
+		a
+			text-decoration: none
+			color: $accent
+			&:hover
+				text-decoration: underline
+
+.hotel
+	margin-bottom: 30px
+	h3
+		font-weight: 600
+		font-size: 16px
+		span
+			font-weight: 300
+			color: $accent
+	&__photos
+		display: -webkit-flex
+		display: -moz-flex
+		display: -ms-flex
+		display: -o-flex
+		display: flex
+		margin-bottom: 15px
+	&__photo
+		height: 260px
+		background-size: cover
+		background-repeat: no-repeat
+		background-position: 50% 50%
+		flex: 1
+		&:first-child
+			margin-right: 20px
+		+r(720)
+			height: 120px
+
+	&_pos-left &__photo
+		&:first-child
+			flex: 2
+	&_pos-right &__photo
+		&:last-child
+			flex: 2
+
+
+.card-wrap
+	display: -webkit-flex
+	display: -moz-flex
+	display: -ms-flex
+	display: -o-flex
+	display: flex
+	justify-content: space-between
+	+r(720)
+		flex-direction: column
+.card
+	text-align: center
+	padding: 0 2%
+	+r(720)
+		margin-bottom: 50px
+	&__photo
+		width: 150px
+		height: 150px
+		margin: 0 auto
+		display: inline-block
+		position: relative
+		&:before
+			content: " "
+			position: absolute
+			width: 50px
+			height: 50px
+			background-position: 0 0
+			background-size: contain
+			background-repeat: no-repeat
+			background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgaGVpZ2h0PSIxMDI0IiB3aWR0aD0iNjQwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0wIDUxMnYyNTZoMjU2VjUxMkgxMjhjMCAwIDAtMTI4IDEyOC0xMjhWMjU2QzI1NiAyNTYgMCAyNTYgMCA1MTJ6TTY0MCAzODRWMjU2YzAgMC0yNTYgMC0yNTYgMjU2djI1NmgyNTZWNTEySDUxMkM1MTIgNTEyIDUxMiAzODQgNjQwIDM4NHoiLz48L3N2Zz4=)
+			left: -25px
+			top: 10%
+		.photo
+			max-width: 100%
+			background-position: 50% 50%
+			background-size: cover
+			background-repeat: no-repeat
+			border-radius: 50%
+	&__name
+		margin: 10px 0 0 0
+		font-weight: bold
+		color: #000
+		font-size: 16px
+	&__position
+		font-size: 16px
+		font-style: italic
+		color: #696973
+		margin-top: 5px
+	&__description
+		line-height: 1.36
+		margin-top: 25px
+		text-align: center
+		color: #000
+
+
+
+
+
+
+@import "media" // Всегда в конце
