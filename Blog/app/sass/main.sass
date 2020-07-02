@@ -1,0 +1,533 @@
+@import "libs"
+@import "_helpers/app"
+@import "fonts"
+
+
+*::-webkit-input-placeholder
+	color: #666
+	opacity: 1
+
+*:-moz-placeholder
+	color: #666
+	opacity: 1
+
+*::-moz-placeholder
+	color: #666
+	opacity: 1
+
+*:-ms-input-placeholder
+	color: #666
+	opacity: 1
+
+body input:focus:required:invalid,
+body textarea:focus:required:invalid
+	color: #666
+body input:required:valid,
+body textarea:required:valid
+	color: #666
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6
+	font-family: $accent-font
+	font-weight: normal
+
+h1, .h1
+	font-size: em(41px)
+	line-height: 1.15
+
+// h2, .h2
+// 	font-size: em(32px)
+
+h3, h4,
+.h3, .h4
+	font-size: em(15px)
+
+h4, .h4
+	font-size: em(13px)
+
+a
+	color: $accent
+	outline: none !important
+
+.nav
+	ul
+		list-style-type: none
+		padding: 0
+		margin: 0
+
+
+
+body
+	background: $Bg2
+	font-size: 18px
+	min-width: 280px
+	position: relative
+	color: $Text
+	line-height: 1.5
+	font-family: $default-font
+	overflow-x: hidden
+	opacity: 1
+	&.ishome
+		.site-header
+			min-height: 700px
+			height: 100vh
+			background-color: $BgReload
+			background-size: cover
+			background-position: 50% 50%
+			background-repeat: no-repeat
+			
+.container
+	margin: 0 auto
+	max-width: 940px
+	+clr
+	+r(940)
+		margin: 0 20px
+
+
+section,
+header
+	position: relative
+	top: 0
+
+section
+	padding-top: 90px
+	padding-bottom: 90px
+	&:nth-child(odd)
+		background-color: $Bg1
+	+r(350)
+		padding-top: 45px
+
+
+
+.section__header
+	flex-direction: column
+	text-align: center
+	margin-bottom: 90px
+	+r(350)
+		margin-bottom: 45px
+	.section__title
+		color: $Text
+		font-size: 48px
+		line-height: 1.35
+		+r(940)
+			font-size: 38px
+			line-height: 1.45
+		+r(350)
+			font-size: 28px
+
+
+.hr
+	content: ""
+	background-color: $accent
+	height: 5px
+	margin: 0
+	&__full
+		width: 100%
+		position: absolute
+		bottom: 0
+	&__inline
+		width: 100px
+		margin-top: 45px
+		+r(350)
+			margin-top: 25px
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+
+.button
+	margin-top: 50px
+	text-align: center
+	a
+		padding: 10px 25px
+		text-decoration: none
+		text-transform: uppercase
+		font-size: 14px
+		transition: all .5s ease
+	&__accent	
+		a
+			color: #fff
+			background-color: $accent
+			&:hover, &:active, &:focus
+				background-color: transparent
+				box-shadow: inset 0px 0px 0px 2px ($accent)
+				color: $accent
+	&__section
+		a
+			color: $accent
+			background-color: transparent
+			box-shadow: inset 0px 0px 0px 2px ($accent)
+			&:hover, &:active, &:focus
+				background-color: $accent
+				color: #fff
+	
+
+		
+.top-line
+	position: fixed
+	width: 100%
+	height: 57px
+	z-index: 99
+	background-color: $Bg1
+	box-shadow: 0 0 5px 0 $Text
+	color: $Text
+
+.header
+	display: -webkit-flex
+	display: -moz-flex
+	display: -ms-flex
+	display: -o-flex
+	display: flex
+	&__logo
+		display: block
+		font-size: 0
+		max-width: 100px
+		min-width: 100px
+		height: auto
+		.logo
+			width: 100%
+	&__nav
+		margin-left: auto	
+		.list
+			display: -webkit-flex
+			display: -moz-flex
+			display: -ms-flex
+			display: -o-flex
+			display: flex
+			justify-content: flex-end
+			align-items: center
+			li
+				position: relative
+				margin: 0 25px 0 25px
+				&:last-child
+					margin-right: 0
+				a
+					line-height: 57px
+					font-size: 14px
+					color: $Text
+					text-transform: uppercase
+					text-decoration: none
+				.menu_active
+					position: absolute
+					top: 0
+					width: 0
+					left: 50%
+					transition: all .3s ease
+				&.selected,
+				&:hover
+					a
+						color: $accent
+					.menu_active
+						width: 100%
+						background-color: $accent
+						height: 2px
+						left: 0			
+	&__social
+		display: flex
+		display: -webkit-flex
+		display: -moz-flex
+		display: -ms-flex
+		display: -o-flex
+		position: absolute
+		right: 0
+		top: 0
+		padding: 57px 12.5px 0 12.5px
+		width: 65px
+		height: 100%
+		border-left: rgba(255,255,255,.2) 1px solid
+		.social
+			margin: auto
+			li
+				display: -webkit-flex
+				display: -moz-flex
+				display: -ms-flex
+				display: -o-flex
+				display: flex
+				align-items: center
+				justify-content: center
+				width: 38px
+				height: 38px
+				margin: 15px 0 15px 0
+				border-radius: 50% 50%
+				background-color: $Bg1
+				opacity: .5
+				&:hover, &:focus
+					opacity: .7
+					transition: all .5s ease
+				a
+					font-size: 16px
+					color: $Text
+
+.flex-center
+	display: -webkit-flex
+	display: -moz-flex
+	display: -ms-flex
+	display: -o-flex
+	display: flex
+	align-items: center
+	justify-content: center
+
+.welcome-position
+	height: 100%
+	padding-top: 57px
+	.header-content
+		margin: 0 auto
+		color: #ffffff
+		font-size: 31px
+		line-height: normal
+		width: 75%
+		text-align: left
+		.welcome
+			white-space: nowrap
+			text-transform: uppercase
+			text-align: center
+		span
+			background-color: rgba(131, 116, 154, .6)
+
+
+
+
+.about-me
+	padding: 0
+	background-color: $Bg2
+	+r(740)
+		padding: 20px
+	.my-info
+		float: left
+		padding: 0
+		width: 23.157894736842106%
+		text-align: center
+		+r(740)
+			display: block
+			width: auto
+			float: none
+		.photo
+			max-width: 100%
+			&__position
+				margin: 0 auto
+		.contact
+			padding: 15px 15px 20px 15px
+			+r(740)
+				padding-top: 15px
+				padding-bottom: 40px
+			&__name
+				font-family: $accent-font
+				color: $Text
+				font-size: 21px
+				text-transform: capitalize
+				font-weight: 500
+				margin-bottom: 5px
+			&__position
+				font-size: 14px
+				text-transform: none
+				color: $TextLighten
+				font-weight: 500
+				margin-bottom: 15px
+			a
+				font-size: 14px
+				font-style: normal
+				text-decoration: underline
+				text-transform: uppercase	
+	.text-info
+		display: inline-block
+		width: 76.84210526315789%
+		padding: 20px
+		+r(740)
+			display: block
+			width: auto
+			padding: 0
+
+
+
+.my-works
+	display: -ms-grid
+	display: grid
+	-ms-grid-columns: repeat(auto-fill, minmax(320px, 1fr))
+	grid-template-columns: repeat(auto-fill, minmax(320px, 1fr))
+
+.work
+	display: block
+	width: 100%
+	position: relative
+	&__text
+		display: -webkit-flex
+		display: -moz-flex
+		display: -ms-flex
+		display: -o-flex
+		display: flex
+		justify-content: center
+		align-items: center
+		position: absolute
+		flex-direction: column
+		top: 0
+		left: 0
+		right: 0
+		bottom: 0
+		width: 100%
+		height: 100%
+		z-index: 5
+		text-align: center
+		font-size: 18px
+		color: #fff
+		opacity: 0
+		transition: all .35s ease
+		
+		&:hover:before,
+		&:hover:after,
+		&:hover
+			opacity: 1
+			transition: all .5s ease
+		&:hover:before,
+		&:hover:after,
+			top: 10px
+			left: 10px
+			right: 10px
+			bottom: 10px
+	&__advantages
+		display: block
+		width: 100%
+		height: 100%
+		&:before, &:after
+			content: ""
+			position: relative
+			top: 0
+			left: 0
+			right: 0
+			bottom: 0
+			opacity: 0
+			transition: all .5s ease
+		&:before
+			z-index: 1
+			border: 2px solid #fff
+			background-color: rgba(131, 116, 154, 1)
+		&:after
+			width: 100%
+			height: 100%	
+
+.post
+	margin-bottom: 50px
+	.item-link
+		text-decoration: none
+	&__bg
+		background-position: 50% 50%
+		background-size: cover
+		background-repeat: no-repeat
+		height: 230px
+		width: 100%
+		+r(500)
+			height: 162px
+	&__header
+		background-color: $Bg2
+		.info
+			display: -webkit-flex
+			display: -moz-flex
+			display: -ms-flex
+			display: -o-flex
+			display: flex
+			flex-direction: column
+			position: absolute
+			top: -4.5em
+			transform: translate(60%, 0)
+			z-index: 5
+			+r(940)
+				transform: none
+				flex-direction: row
+				width: 100%
+			&__category,
+			&__date
+				display: -webkit-flex
+				display: -moz-flex
+				display: -ms-flex
+				display: -o-flex
+				display: flex
+				align-items: center
+				justify-content: center
+				padding: 10px
+				width: 81px
+				height: 81px
+			&__category
+				background-color: $accent
+				.fa-picture-o
+					font-size: 48px
+					color: #fff
+			&__date
+				flex-direction: column
+				background-color: $Text
+				+r(940)
+					margin-left: auto
+				.day,
+				.month
+					display: block
+					font-family: $accent-font
+					color: #fff
+					line-height: 0.77
+				.day
+					font-size: 36px
+					font-weight: 600
+					letter-spacing: -0.035em
+				.month
+					position: relative
+					left: 3px
+					margin-top: 7px
+					font-size: 18px
+					font-weight: 300
+					letter-spacing: 0.150em
+	.description
+		padding: 15px 25px 15px 16.67%
+		+r(940)
+			padding: 15px 25px
+			margin: 0 auto
+		&__title
+			font-size: 24px
+			display: block
+			line-height: normal
+			font-family: $accent-font
+			color: $Text
+			font-weight: normal
+			&:hover, &:focus
+				text-decoration: underline
+			+r(350)
+				font-size: 18px
+		&__tool
+			display: -webkit-flex
+			display: -moz-flex
+			display: -ms-flex
+			display: -o-flex
+			display: flex
+			align-items: center
+			margin-bottom: 7px
+			.fa-first-order
+				font-size: 18px
+				display: block
+				color: $Text
+				+r(350)
+					font-size: 16px
+			.tool__name
+				display: block
+				margin-left: 7px
+				line-height: normal
+				font-size: 18px
+				font-weight: 300
+				font-family: $default-font
+				color: $TextTools
+				text-transform: capitalize
+				+r(350)
+					font-size: 16px
+footer
+	width: 100%
+	padding: 30px
+	background-color: $Text
+	text-align: center
+	font-size: 18px
+	color: $TextFooter
+	font-weight: 400
+	font-style: italic
+
+		
+
+
+
+
+
+@import "media" // Всегда в конце
