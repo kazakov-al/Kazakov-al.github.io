@@ -1,0 +1,9 @@
+.header__lang-link {
+  color: inherit;
+  text-decoration: none;
+  transition: opacity .6s;
+}
+
+.header__lang-link:hover {
+  opacity: .8;
+}

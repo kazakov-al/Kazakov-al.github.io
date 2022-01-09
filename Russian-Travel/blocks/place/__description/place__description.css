@@ -1,0 +1,15 @@
+.place__description {
+  margin-top: 32px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+@media (min-width: 768px) {
+  .place__description {
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+    margin-top: 0;
+    padding-left: initial;
+    padding-right: initial;
+  }
+}

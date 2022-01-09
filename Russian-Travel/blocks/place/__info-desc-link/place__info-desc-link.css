@@ -1,0 +1,8 @@
+.place__info-desc-link {
+  color: inherit;
+  transition: opacity .6s;
+}
+
+.place__info-desc-link:hover {
+  opacity: .8;
+}

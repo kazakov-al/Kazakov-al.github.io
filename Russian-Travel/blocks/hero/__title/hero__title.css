@@ -1,0 +1,17 @@
+.hero__title {
+  max-width: 288px;
+  font-weight: 900;
+  font-size: 40px;
+  line-height: 44px;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .hero__title {
+    max-width: 720px;
+    font-size: 96px;
+    line-height: 100px;
+  }
+}

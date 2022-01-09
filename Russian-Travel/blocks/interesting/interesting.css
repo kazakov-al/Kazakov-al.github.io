@@ -1,0 +1,28 @@
+.interesting {
+  margin-top: 64px;
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+@media (min-width: 768px) {
+  .interesting {
+    margin-top: 88px;
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .interesting {
+    margin-top: 92px;
+    padding-left: 48px;
+    padding-right: 286px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .interesting {
+    padding-left: 148px;
+    padding-right: 442px;
+  }
+}

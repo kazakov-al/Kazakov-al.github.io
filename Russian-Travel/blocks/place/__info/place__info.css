@@ -1,0 +1,17 @@
+.place__info {
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-top: 32px;
+  margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+  .place__info {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    align-self: end;
+    padding-left: initial;
+    padding-right: initial;
+    margin-top: 0;
+  }
+}
