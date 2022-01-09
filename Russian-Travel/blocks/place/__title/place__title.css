@@ -10,9 +10,9 @@
 
 @media (min-width: 768px) {
   .place__title {
+    max-width: 335px;
     grid-column: 1 / 2;
     grid-row: 1 / 2;
-    /* 43 тут стояло специально для переноса как в макете. */
     font-size: 42px;
     line-height: 46px;
     padding-left: initial;
@@ -22,6 +22,7 @@
 
 @media (min-width: 1024px) {
   .place__title {
+    max-width: initial;
     font-size: 72px;
     line-height: 76px;
   }
