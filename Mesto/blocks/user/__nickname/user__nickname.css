@@ -1,0 +1,4 @@
+.user__nickname {
+  display: flex;
+  align-items: baseline;
+}
