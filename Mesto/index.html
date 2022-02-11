@@ -87,6 +87,7 @@
 
       <section
         class="popup"
+        id="user-info-edit-popup"
         role="dialog"
       >
         <div class="popup__container">
@@ -97,14 +98,14 @@
           >
           </button>
 
-          <form class="form user-info-edit-form" id="user-info-edit-form">
-            <h2 class="form__title user-info-edit-form__title">
+          <form class="form" id="user-info-edit-form">
+            <h2 class="form__title">
               Редактировать профиль
             </h2>
 
-            <label class="form__item user-info-edit-form__item">
+            <label class="form__item">
               <input
-                class="form__field user-info-edit-form__field"
+                class="form__field"
                 type="text"
                 id="user-nickname-field"
                 placeholder="Имя"
@@ -113,9 +114,9 @@
                 required
               >
             </label>
-            <label class="form__item user-info-edit-form__item">
+            <label class="form__item">
               <input
-                class="form__field user-info-edit-form__field"
+                class="form__field"
                 type="text"
                 id="user-description-field"
                 placeholder="О себе"
@@ -129,8 +130,101 @@
           </form>
         </div>
       </section>
-      
+
+      <section
+        class="popup"
+        id="place-add-popup"
+        role="dialog"
+      >
+        <div class="popup__container">
+          <button
+            class="popup__close-button"
+            aria-label="Закрыть окно"
+            type="button"
+          >
+          </button>
+
+          <form class="form" id="place-add-form">
+            <h2 class="form__title">
+              Новое место
+            </h2>
+
+            <label class="form__item">
+              <input
+                class="form__field"
+                type="text"
+                id="place-name-field"
+                placeholder="Название"
+                minlength="2"
+                maxlength="40"
+                required
+              >
+            </label>
+            <label class="form__item">
+              <input
+                class="form__field"
+                type="text"
+                id="place-image-field"
+                placeholder="Ссылка на картинку"
+                required
+              >
+            </label>
+
+            <button class="form__save-button">Создать</button>
+          </form>
+        </div>
+      </section>
+
+      <section
+        class="popup popup_backdrop_black"
+        id="place-photo-popup"
+        role="dialog"
+      >
+        <div class="popup__container popup__container_width_auto">
+          <button
+            class="popup__close-button"
+            aria-label="Закрыть окно"
+            type="button"
+          >
+          </button>
+
+          <figure class="popup__figure">
+            <img
+              class="popup__image"
+              src="./assets/images/karachaevsk.jpg"
+              alt="Фото Карачаевска"
+            >
+            <figcaption class="popup__caption">123456</figcaption>
+          </figure>
+        </div>
+      </section>
+
     </div>
+
+    <template id="place-item">
+      <li class="places__item">
+        <article class="place">
+          <button
+            class="place__remove-button"
+            aria-label="Удалить место"
+          >
+          </button>
+          <img
+            class="place__image"
+            src="./assets/images/karachaevsk.jpg"
+            alt="Фото Карачаевска"
+          >
+          <div class="place__info">
+            <h2 class="place__name"></h2>
+            <button
+              class="place__like-button"
+              aria-label="Нравится"
+            >
+            </button>
+          </div>
+        </article>
+      </li>
+    </template>
 
     <script src="./scripts/index.js"></script>
   </body>

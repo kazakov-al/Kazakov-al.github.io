@@ -25,6 +25,7 @@
 @import '../blocks/places/__list/places__list.css';
 
 @import '../blocks/place/place.css';
+@import '../blocks/place/__remove-button/place__remove-button.css';
 @import '../blocks/place/__image/place__image.css';
 @import '../blocks/place/__info/place__info.css';
 @import '../blocks/place/__name/place__name.css';
@@ -36,8 +37,13 @@
 
 @import '../blocks/popup/popup.css';
 @import '../blocks/popup/_opened/popup_opened.css';
+@import '../blocks/popup/_backdrop/popup_backdrop_black.css';
 @import '../blocks/popup/__container/popup__container.css';
+@import '../blocks/popup/__container/_width/popup__container_width_auto.css';
 @import '../blocks/popup/__close-button/popup__close-button.css';
+@import '../blocks/popup/__figure/popup__figure.css';
+@import '../blocks/popup/__image/popup__image.css';
+@import '../blocks/popup/__caption/popup__caption.css';
 
 @import '../blocks/form/form.css';
 @import '../blocks/form/__title/form__title.css';
