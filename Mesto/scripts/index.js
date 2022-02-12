@@ -6,16 +6,16 @@ const userInfoEditButton = document.querySelector('.user__info-edit-button');
 const placeAddButton = document.querySelector('.profile__place-add-button');
 const closePopupButtons = document.querySelectorAll('.popup__close-button');
 const userInfoEditPopup = document.querySelector('#user-info-edit-popup');
+const userInfoEditForm = userInfoEditPopup.querySelector('#user-info-edit-form');
+const userNicknameField = userInfoEditForm.querySelector('#user-nickname-field');
+const userDescriptionField = userInfoEditForm.querySelector('#user-description-field');
 const placeAddPopup = document.querySelector('#place-add-popup');
+const placeAddForm = placeAddPopup.querySelector('#place-add-form');
+const placeNameField = placeAddForm.querySelector('#place-name-field');
+const placeImageField = placeAddForm.querySelector('#place-image-field');
 const placePhotoPopup = document.querySelector('#place-photo-popup');
-const placePopupImage = document.querySelector('.popup__image');
-const placePopupImageCaption = document.querySelector('.popup__caption');
-const userInfoEditForm = document.querySelector('#user-info-edit-form');
-const userNicknameField = document.querySelector('#user-nickname-field');
-const userDescriptionField = document.querySelector('#user-description-field');
-const placeAddForm = document.querySelector('#place-add-form');
-const placeNameField = document.querySelector('#place-name-field');
-const placeImageField = document.querySelector('#place-image-field');
+const placePopupImage = placePhotoPopup.querySelector('.popup__image');
+const placePopupImageCaption = placePhotoPopup.querySelector('.popup__caption');
 
 const places = [
   {
@@ -48,8 +48,8 @@ function setTextValue(item, value) {
   item.textContent = `${value}`;
 }
 
-function addPlace(place) {
-  const placeItemEl = placeItemTemplate.querySelector('.places__item').cloneNode(true);
+function createPlaceCard(place) {
+  const placeItemEl = placeItemTemplate.cloneNode(true);
   const placeLikeButton = placeItemEl.querySelector('.place__like-button');
   const placeRemoveButton = placeItemEl.querySelector('.place__remove-button');
   const placeImage = placeItemEl.querySelector('.place__image');
@@ -63,12 +63,16 @@ function addPlace(place) {
   placeRemoveButton.addEventListener('click', removePlaceItem);
   placeImage.addEventListener('click', openPlacePopup);
 
-  placesEl.prepend(placeItemEl);
+  return placeItemEl;
+}
+
+function renderPlaceCard(place) {
+  placesEl.prepend(createPlaceCard(place));
 }
 
 function fillPlaces() {
   for (const place of places) {
-    addPlace(place);
+    renderPlaceCard(place);
   }
 }
 
@@ -91,20 +95,6 @@ function openProfilePopup(e) {
   openPopup(e)
   setUserInfoEditFormFieldValue();
 }
-
-closePopupButtons.forEach(closePopupButton => {
-  closePopupButton.addEventListener('click', function (e) {
-    closePopup(e);
-  });
-});
-
-userInfoEditButton.addEventListener('click', function () {
-  openProfilePopup(userInfoEditPopup);
-});
-
-placeAddButton.addEventListener('click', function () {
-  openPopup(placeAddPopup);
-});
 
 function removePlaceItem(e) {
   e.target.closest('.places__item').remove();
@@ -134,6 +124,10 @@ userInfoEditForm.addEventListener('submit', function (e) {
   closePopup(e);
 });
 
+userInfoEditButton.addEventListener('click', function () {
+  openProfilePopup(userInfoEditPopup);
+});
+
 placeAddForm.addEventListener('submit', function (e) {
   e.preventDefault();
 
@@ -142,10 +136,20 @@ placeAddForm.addEventListener('submit', function (e) {
     link: placeImageField.value
   }
 
-  addPlace(place);
+  renderPlaceCard(place);
   closePopup(e);
 });
 
+placeAddButton.addEventListener('click', function () {
+  placeAddForm.reset();
+  openPopup(placeAddPopup);
+});
+
+closePopupButtons.forEach(closePopupButton => {
+  closePopupButton.addEventListener('click', function (e) {
+    closePopup(e);
+  });
+});
 
 setTextValue(userNickname, 'Жак-Ив Кусто');
 setTextValue(userDescription, 'Исследователь океана');

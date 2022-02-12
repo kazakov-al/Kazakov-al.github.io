@@ -5,6 +5,7 @@
 
 @media (min-width: 1280px) {
   .user__caption {
+    max-width: 75%;
     margin-top: initial;
     margin-left: 30px;
   }
