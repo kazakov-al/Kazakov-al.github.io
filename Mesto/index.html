@@ -98,7 +98,7 @@
           >
           </button>
 
-          <form class="form" id="user-info-edit-form">
+          <form class="form" id="user-info-edit-form" action="" method="POST" novalidate>
             <h2 class="form__title">
               Редактировать профиль
             </h2>
@@ -113,6 +113,7 @@
                 maxlength="40"
                 required
               >
+              <span class="form__field-error" id="error-user-nickname-field"></span>
             </label>
             <label class="form__item">
               <input
@@ -121,12 +122,13 @@
                 id="user-description-field"
                 placeholder="О себе"
                 minlength="2"
-                maxlength="240"
+                maxlength="200"
                 required
               >
+              <span class="form__field-error" id="error-user-description-field"></span>
             </label>
 
-            <button class="form__save-button">Сохранить</button>
+            <button class="form__submit">Сохранить</button>
           </form>
         </div>
       </section>
@@ -144,7 +146,7 @@
           >
           </button>
 
-          <form class="form" id="place-add-form">
+          <form class="form" id="place-add-form" action="" method="POST" novalidate>
             <h2 class="form__title">
               Новое место
             </h2>
@@ -156,21 +158,23 @@
                 id="place-name-field"
                 placeholder="Название"
                 minlength="2"
-                maxlength="40"
+                maxlength="30"
                 required
               >
+              <span class="form__field-error" id="error-place-name-field">Вы пропустили это поле.</span>
             </label>
             <label class="form__item">
               <input
                 class="form__field"
-                type="text"
+                type="url"
                 id="place-image-field"
                 placeholder="Ссылка на картинку"
                 required
               >
+              <span class="form__field-error" id="error-place-image-field"></span>
             </label>
 
-            <button class="form__save-button">Создать</button>
+            <button class="form__submit">Создать</button>
           </form>
         </div>
       </section>
@@ -226,6 +230,7 @@
       </li>
     </template>
 
+    <script src="./scripts/validation.js"></script>
     <script src="./scripts/index.js"></script>
   </body>
 </html>

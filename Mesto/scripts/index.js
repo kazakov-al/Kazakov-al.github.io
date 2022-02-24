@@ -4,7 +4,7 @@ const placesEl = document.querySelector('.places__list');
 const placeItemTemplate = document.querySelector('#place-item').content;
 const userInfoEditButton = document.querySelector('.user__info-edit-button');
 const placeAddButton = document.querySelector('.profile__place-add-button');
-const closePopupButtons = document.querySelectorAll('.popup__close-button');
+const popups = document.querySelectorAll('.popup');
 const userInfoEditPopup = document.querySelector('#user-info-edit-popup');
 const userInfoEditForm = userInfoEditPopup.querySelector('#user-info-edit-form');
 const userNicknameField = userInfoEditForm.querySelector('#user-nickname-field');
@@ -83,17 +83,29 @@ function setUserInfoEditFormFieldValue() {
 
 function openPopup(popupEl) {
   popupEl.classList.add('popup_opened');
+
+  document.addEventListener('keydown', closePopupByEscape);
 }
 
-function closePopup(e) {
-  const popup = e.target.closest('.popup');
+function closePopup() {
+  const popup = document.querySelector('.popup_opened');
 
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupByEscape);
+}
+
+function closePopupByEscape(e) {
+  if (e.key === 'Escape') closePopup();
 }
 
 function openProfilePopup(e) {
-  openPopup(e)
   setUserInfoEditFormFieldValue();
+  openPopup(e);
+
+  // временное решение пока не прошли модули
+  const form = e.querySelector('.form');
+  const button = e.querySelector('.form__submit');
+  checkSubmitButtonValidity({ inactiveButtonClass: 'form__submit_type_disabled' }, form, button);
 }
 
 function removePlaceItem(e) {
@@ -109,6 +121,15 @@ function openPlacePopup(e) {
   openPopup(placePhotoPopup);
 }
 
+function openAddPlacePopup(e) {
+  openPopup(e);
+
+  // временное решение пока не прошли модули
+  const form = e.querySelector('.form');
+  const button = e.querySelector('.form__submit');
+  checkSubmitButtonValidity({ inactiveButtonClass: 'form__submit_type_disabled' }, form, button);
+}
+
 function setPlacePopupData(e) {
   placePopupImage.src = e.target.src;
   placePopupImage.alt = e.target.alt;
@@ -121,7 +142,7 @@ userInfoEditForm.addEventListener('submit', function (e) {
   setTextValue(userNickname, userNicknameField.value);
   setTextValue(userDescription, userDescriptionField.value);
 
-  closePopup(e);
+  closePopup();
 });
 
 userInfoEditButton.addEventListener('click', function () {
@@ -137,19 +158,20 @@ placeAddForm.addEventListener('submit', function (e) {
   }
 
   renderPlaceCard(place);
-  closePopup(e);
+  closePopup();
 });
 
 placeAddButton.addEventListener('click', function () {
   placeAddForm.reset();
-  openPopup(placeAddPopup);
+  openAddPlacePopup(placeAddPopup);
 });
 
-closePopupButtons.forEach(closePopupButton => {
-  closePopupButton.addEventListener('click', function (e) {
-    closePopup(e);
+popups.forEach(popup => {
+  popup.addEventListener('click', function (e) {
+    if (e.target === popup) closePopup(e);
+    if (e.target.classList.contains('popup__close-button')) closePopup(e);
   });
-});
+})
 
 setTextValue(userNickname, 'Жак-Ив Кусто');
 setTextValue(userDescription, 'Исследователь океана');
